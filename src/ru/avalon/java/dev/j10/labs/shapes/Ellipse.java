@@ -14,9 +14,10 @@ import static java.lang.Math.*;
  */
 public interface Ellipse extends Figure {
      double pi  = PI;
-
-
-
+     
+     /*  TODO (Замечания №1)
+        - Данная переменная нигде не используется!
+    */
 
     /*
 

@@ -15,6 +15,15 @@ public final class Rectangle implements Polygon {
     private final float x;
     private final float y;
     private final int angle;   // угол поворота
+    
+    /*  TODO (Замечания №1)
+        - Все переменные делать финализированными бесмысленно, данные параметры возможно
+        понадобиться изменить при работе с ними. Например: координаты прямогольника или угол
+        повотора, могут меняться, если мы будем перемещать фигуру по плоскости или поворачивать.
+        - Стороны прямоугольнка тоже могут меняться.
+        - Объявляя класс как final ты не сможешь от него наследоваться! В данной ЛР final можно применить,
+        т.к. класс неимеет наследников.
+    */
 
 
     public Rectangle() {
@@ -23,10 +32,11 @@ public final class Rectangle implements Polygon {
         x = (float) (100 * Math.random());
         y = (float) (100 * Math.random());
         angle = (int) (360 * Math.random());
-
-
     }
-
+    
+/*  TODO (Замечания №1)
+        - Дописать комментарии полей и методов класса
+    */
 
     @Override
     public float getPerimeter() {
