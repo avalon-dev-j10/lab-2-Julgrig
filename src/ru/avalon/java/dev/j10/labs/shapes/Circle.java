@@ -11,38 +11,59 @@ import static java.lang.Math.PI;
  * @see <a href="https://ru.wikipedia.org/wiki/%D0%9E%D0%BA%D1%80%D1%83%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Окружность</a>
  */
 public final class Circle implements Ellipse {
-    private final float r; // радиус окружности
-    private final float x2;
-    private final float y2;
+    private  float r; // радиус окружности
+    private  float x; // абсцисса точки
+    private  float y; // ордината точки
+
+    /*  TODO (Замечания №1)
+        - Все переменные делать финализированными бесмысленно, данные параметры возможно
+        понадобиться изменить при работе с ними. Например: координаты круга, могут меняться,
+        если мы будем перемещать фигуру по плоскости.
+        - Радиус круга тоже может меняться.
+        - Объявляя класс как final ты не сможешь от него наследоваться! В данной ЛР final можно применить,
+        т.к. класс неимеет наследников.
+    */
 
 
     public Circle() {
         r = (float) (100 * Math.random());
-        x2 = (float) (100 * Math.random());
-        y2 = (float) (100 * Math.random());
+        x = (float) (100 * Math.random());
+        y = (float) (100 * Math.random());
     }
+    
+    /*  TODO (Замечания №1)
+        - Дописать комментарии полей и методов класса СДЕЛАНО
+        - Добавлять 2 к переменным в данном случае бесмысленно, т.к. они
+        используются в единичном экземпляре. Переименовать переменные! ПЕРЕИМЕНОВАЛА
+    */
 
 
+
+    // метод возвращает длину круга
     @Override
     public float getLength() {
         return (float) (2 * PI * r);
     }
 
+   // метод возвращает координаты точки х круга
     @Override
     public float getX() {
-        return x2;
+        return x;
     }
 
+    // метод возвращает координаты точки y круга
     @Override
     public float getY() {
-        return y2;
+        return y;
     }
 
+    // метод возвращает площадь круга
     @Override
     public float getArea() {
         return (float) (PI * r * r);
     }
 
+    // метод возвращает угол поворота, круг не поддерживает вращение, поэтому метод всегд возвращает 0.
     @Override
     public int getRotation() {
         return 0;

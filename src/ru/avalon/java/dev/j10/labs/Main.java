@@ -32,18 +32,22 @@ public class Main {
          */
 
 
-        Figure maxArea = null;
-        for (int i = 0; i < figures.length; i++) {
-            System.out.println(figures[i] + " Площадь фигуры = "  + figures[i].getArea());
+        Figure maxArea = figures[0];
+        for (int i = 1; i < figures.length; i++) {
+            System.out.println(figures[i] + " Площадь фигуры = " + figures[i].getArea());
 
-            if (maxArea != null) {
-                if (figures[i].getArea() > maxArea.getArea()) {
-                    maxArea = figures[i];
-                }
-            } else {
+            if (figures[i].getArea() > maxArea.getArea()) {
                 maxArea = figures[i];
             }
+
         }
+        
+        /*  TODO (Замечания №1)
+            - В твоей реализации поиска MAX площади, можно сразу maxArea приравнять первому
+            элементу figures[0], цикл for начать с 1, вместо 0. Тогда в теле цикла не
+            понадобиться проверять на null. Кода станет меньше
+            - Исправить!
+        */
 
         System.out.println("--------------");
         System.out.println("Фигура с большей площадью " + maxArea + " Площадь: " + maxArea.getArea());

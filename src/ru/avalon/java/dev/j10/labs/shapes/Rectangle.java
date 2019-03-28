@@ -10,11 +10,20 @@ package ru.avalon.java.dev.j10.labs.shapes;
  */
 public final class Rectangle implements Polygon {
 
-    private final float a; // первая сторона
-    private final float b; // вторая сторона
-    private final float x;
-    private final float y;
-    private final int angle;   // угол поворота
+    private float a; // первая сторона
+    private float b; // вторая сторона
+    private float x; // абсцисса точки
+    private float y; //  ордината точки
+    private int angle;   // угол поворота
+    
+    /*  TODO (Замечания №1)
+        - Все переменные делать финализированными бесмысленно, данные параметры возможно
+        понадобиться изменить при работе с ними. Например: координаты прямогольника или угол
+        повотора, могут меняться, если мы будем перемещать фигуру по плоскости или поворачивать.
+        - Стороны прямоугольнка тоже могут меняться.
+        - Объявляя класс как final ты не сможешь от него наследоваться! В данной ЛР final можно применить,
+        т.к. класс неимеет наследников.
+    */
 
 
     public Rectangle() {
@@ -23,32 +32,38 @@ public final class Rectangle implements Polygon {
         x = (float) (100 * Math.random());
         y = (float) (100 * Math.random());
         angle = (int) (360 * Math.random());
-
-
     }
+    
+/*  TODO (Замечания №1)
+        - Дописать комментарии полей и методов класса
+    */
 
-
+    // метод возвращает периметр прямоугольника
     @Override
     public float getPerimeter() {
 
         return 2 * (a + b);
     }
 
+    // метод возвращает абсциссу х прямоугольника
     @Override
     public float getX() {
         return x;
     }
 
+    // метод возвращает ординату y прямоугольника
     @Override
     public float getY() {
         return y;
     }
 
+    // метод возвращает площадь прямоугольника
     @Override
     public float getArea() {
         return a * b;
     }
 
+    // метод возвращает угол поворота прямоугольника
     @Override
     public int getRotation() {
         return angle;
