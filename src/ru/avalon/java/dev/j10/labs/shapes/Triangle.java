@@ -16,13 +16,12 @@ package ru.avalon.java.dev.j10.labs.shapes;
  */
 public final class Triangle implements Polygon {
 
-    private final float a1; // первая сторона треугольниука
-    private final float b1; // вторая сторона треугольниука
-    private final float c1; // третья сторона треугольниука
-    private final float h1; // высота треугольника
-    private final float x1;
-    private final float y1;
-    private final int angle1;  // угол ротации
+    private float a; // первая сторона треугольниука
+    private float b; // вторая сторона треугольниука
+    private float c; // третья сторона треугольниука
+    private float x; // абсцисса точки
+    private float y; // ордината точки
+    private int angle;  // угол ротации треугольника
     
     /*  TODO (Замечания №1)
         - Все переменные делать финализированными бесмысленно, данные параметры возможно
@@ -30,54 +29,60 @@ public final class Triangle implements Polygon {
         повотора, могут меняться, если мы будем перемещать фигуру по плоскости или поворачивать.
         - Стороны и высота треугольнка тоже могут меняться.
         - Объявляя класс как final ты не сможешь от него наследоваться! В данной ЛР final можно применить,
-        т.к. класс неимеет наследников.
+        т.к. класс неимеет наследников. СДЕЛАНО
         - Для работы с треугольником достаточно знать все его 3 стороны, высота в данном случае будет
-        параметр зависящий от значений этих сторон.
+        параметр зависящий от значений этих сторон. СДЕЛАНО
     */
 
     public Triangle() {
-        a1 = (float) (100 * Math.random());
-        b1 = (float) (100 * Math.random());
-        c1 = (float) (100 * Math.random());
-        h1 = (float) (100 * Math.random());
-        x1 = (float) (100 * Math.random());
-        y1 = (float) (100 * Math.random());
-        angle1 = (int) (360 * Math.random());
+        a = (float) (100 * Math.random());
+        b = (float) (100 * Math.random());
+        c = (float) (100 * Math.random());
+        x = (float) (100 * Math.random());
+        y = (float) (100 * Math.random());
+        angle = (int) (360 * Math.random());
 
     }
     
     /*  TODO (Замечания №1)
         - Дописать комментарии полей и методов класса
         - Добавлять 1 к переменным в данном случае бесмысленно, т.к. они
-        используются в единичном экземпляре. Переименовать переменные!
+        используются в единичном экземпляре. Переименовать переменные! УБРАЛА
         - В конструкторе Triangle(), получаеться треугольник, который на полскости построить нельзя.
         Если по твоим трем сторонам построить треугольник, то высота уже в 99,9% не войдет в данный треугольник.
-        - Убрать высоту, Площадь треугольника вычислить по формуле Герона.
+        - Убрать высоту, Площадь треугольника вычислить по формуле Герона.ПЕРЕДЕЛАЛА
     */
 
+    // метод возвращает периметр треугольника
     @Override
     public float getPerimeter() {
-        return a1 + b1 + c1;
+        return a + b + c;
     }
 
+    // метод возвращает абсциссу х треугольника
     @Override
     public float getX() {
-        return x1;
+        return x;
     }
 
+    // метод возвращает ординату y треугольника
     @Override
     public float getY() {
-        return y1;
+        return y;
     }
 
+    // метод возвращает площадь треугольника
     @Override
     public float getArea() {
-        return (a1 * h1) / 2;
+
+        float pp = (float) ((a + b + c) / 2.0);  // полупериметр треугольника
+        return (float) (Math.sqrt(pp * (pp - a) * (pp - b) * (pp - c)));
     }
 
+    // метод возвращает угол поворота треугольника
     @Override
     public int getRotation() {
-        return angle1;
+        return angle;
     }
 
     /*
@@ -89,12 +94,13 @@ public final class Triangle implements Polygon {
     @Override
     public String toString() {
         return "Triangle (" +
-                " a1 = " + a1 +
-                " , h1 = " + h1 +
+                "a = " + a +
+                ",  b= " + b +
+                ", c = " + c +
                 ')';
     }
-    
-    /*  TODO (Замечания №1)
+
+   /*  TODO (Замечания №1)
         - Метод toString изучается на 2 курсе Java, наверное подсмотрела в интернете, если 
         смысл метода тебе понятен, то пусть остается! )))
     */

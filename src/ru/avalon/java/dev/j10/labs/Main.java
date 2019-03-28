@@ -32,17 +32,14 @@ public class Main {
          */
 
 
-        Figure maxArea = null;
-        for (int i = 0; i < figures.length; i++) {
-            System.out.println(figures[i] + " Площадь фигуры = "  + figures[i].getArea());
+        Figure maxArea = figures[0];
+        for (int i = 1; i < figures.length; i++) {
+            System.out.println(figures[i] + " Площадь фигуры = " + figures[i].getArea());
 
-            if (maxArea != null) {
-                if (figures[i].getArea() > maxArea.getArea()) {
-                    maxArea = figures[i];
-                }
-            } else {
+            if (figures[i].getArea() > maxArea.getArea()) {
                 maxArea = figures[i];
             }
+
         }
         
         /*  TODO (Замечания №1)
